@@ -4,7 +4,7 @@
 
   <mat-list dense>
     <mat-list-item *ngFor="let contact of contacts">
-      <p matLine>Nombre: {{ contact.name }}</p>
+      <p matLine>Contact Name: {{ contact.name }}</p>
       <p matLine>Phone Number: {{ contact.phoneNumber }}</p>
       <div class="contact-actions">
         <button mat-icon-button color="accent" (click)="editContact(contact.id)">
