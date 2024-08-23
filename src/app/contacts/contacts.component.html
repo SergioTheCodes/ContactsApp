@@ -1,18 +1,19 @@
 <div class="contacts-container">
-    <h2>Your Contacts</h2>
-    <button mat-raised-button color="primary" routerLink="/contacts/new">Add New Contact</button>
-  
-    <mat-list>
-      <mat-list-item *ngFor="let contact of contacts">
-        <h4 matLine>{{ contact.name }}</h4>
-        <p matLine>{{ contact.phoneNumber }}</p>
+  <h2>Your Contacts</h2>
+  <button mat-raised-button color="primary" routerLink="/contacts/new">Add New Contact</button>
+
+  <mat-list dense>
+    <mat-list-item *ngFor="let contact of contacts">
+      <p matLine>Nombre: {{ contact.name }}</p>
+      <p matLine>Phone Number: {{ contact.phoneNumber }}</p>
+      <div class="contact-actions">
         <button mat-icon-button color="accent" (click)="editContact(contact.id)">
-          <mat-icon>edit</mat-icon>
+          <mat-icon class="edit-icon">edit</mat-icon>
         </button>
         <button mat-icon-button color="warn" (click)="deleteContact(contact.id)">
-          <mat-icon>delete</mat-icon>
+          <mat-icon class="delete-icon">delete</mat-icon>
         </button>
-      </mat-list-item>
-    </mat-list>
-  </div>
-  
+      </div>
+    </mat-list-item>
+  </mat-list>
+</div>

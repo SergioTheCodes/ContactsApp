@@ -24,8 +24,8 @@ export class ContactsService {
   } 
 
   createContact(contact: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/CreateContact`, contact).pipe(
-      catchError(this.handleError<any>('CreateContact'))
+    return this.http.post<any>(`${this.apiUrl}/AddContact`, contact).pipe(
+      catchError(this.handleError<any>('AddContact'))
     );
   }
 
