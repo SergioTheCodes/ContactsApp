@@ -26,13 +26,22 @@ export class ContactsComponent {
     });
   }
 
-  editContact(id: string) {
-    // Navigate to the edit form with the contact ID
+  editContact(contact: any) {
+    if (contact) {
+      this.contactsService.updateContact(contact).subscribe({
+        next: (contact) => {
+          this.loadContacts();
+        },
+        error: (error) => {
+          alert('Failed to load contact: ' + error.message);
+        }
+      });
+    }
   }
 
-  deleteContact(id: string) {
-    if (confirm('Are you sure you want to delete this contact?')) {
-      this.contactsService.deleteContact(id).subscribe({
+  deleteContact(contact: any) {
+    if (confirm('Are you sure you want to delete this contact?')) {      
+      this.contactsService.deleteContact(contact).subscribe({
         next: () => {
           this.loadContacts();
         },

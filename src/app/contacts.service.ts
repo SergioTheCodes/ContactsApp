@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
@@ -36,7 +36,11 @@ export class ContactsService {
   }
 
   deleteContact(contact: any): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/DeleteContact`, contact).pipe(
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      body: contact
+    }
+    return this.http.delete<any>(`${this.apiUrl}/DeleteContact`, httpOptions).pipe(
       catchError(this.handleError<any>('DeleteContact'))
     );
   }

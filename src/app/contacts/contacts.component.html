@@ -7,10 +7,10 @@
       <p matLine>Contact Name: {{ contact.name }}</p>
       <p matLine>Phone Number: {{ contact.phoneNumber }}</p>
       <div class="contact-actions">
-        <button mat-icon-button color="accent" (click)="editContact(contact.id)">
+        <button mat-icon-button color="accent" (click)="editContact(contact)">
           <mat-icon class="edit-icon">edit</mat-icon>
         </button>
-        <button mat-icon-button color="warn" (click)="deleteContact(contact.id)">
+        <button mat-icon-button color="warn" (click)="deleteContact(contact)">
           <mat-icon class="delete-icon">delete</mat-icon>
         </button>
       </div>
