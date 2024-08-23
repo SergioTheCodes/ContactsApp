@@ -9,7 +9,7 @@ import {Router, ActivatedRoute} from '@angular/router';
   styleUrl: './contact-form.component.less'
 })
 export class ContactFormComponent implements OnInit {
-  contact: any = { name: '', phone: '' };
+  contact: any = { name: '', phoneNumber: 0 };
   isEditMode: boolean = false;
 
   constructor(
@@ -44,6 +44,7 @@ export class ContactFormComponent implements OnInit {
         }
       });
     } else {
+      this.contact.phoneNumber
       this.contactsService.createContact(this.contact).subscribe({
         next: () => {
           this.router.navigate(['/contacts']);
