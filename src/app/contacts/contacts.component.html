@@ -1,0 +1,18 @@
+<div class="contacts-container">
+    <h2>Your Contacts</h2>
+    <button mat-raised-button color="primary" routerLink="/contacts/new">Add New Contact</button>
+  
+    <mat-list>
+      <mat-list-item *ngFor="let contact of contacts">
+        <h4 matLine>{{ contact.name }}</h4>
+        <p matLine>{{ contact.phone }}</p>
+        <button mat-icon-button color="accent" (click)="editContact(contact.id)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="deleteContact(contact.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  

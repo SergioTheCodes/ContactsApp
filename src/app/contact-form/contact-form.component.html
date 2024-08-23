@@ -1,0 +1,17 @@
+<div class="contact-form-container">
+    <h2>{{ isEditMode ? 'Edit Contact' : 'Add New Contact' }}</h2>
+    <form (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="contact.name" name="name" required />
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Phone</mat-label>
+        <input matInput [(ngModel)]="contact.phone" name="phone" required />
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit">{{ isEditMode ? 'Update' : 'Add' }}</button>
+    </form>
+  </div>
+  
