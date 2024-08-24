@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactsService } from '../contacts.service';
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-contacts',
@@ -7,9 +8,9 @@ import { ContactsService } from '../contacts.service';
   styleUrl: './contacts.component.less'
 })
 export class ContactsComponent {
-  contacts: any[] = [];
+  contacts: any[] = [];  
 
-  constructor(private contactsService: ContactsService) {}
+  constructor(private contactsService: ContactsService, private router: Router,) {}
 
   ngOnInit() {
     this.loadContacts();
@@ -27,16 +28,7 @@ export class ContactsComponent {
   }
 
   editContact(contact: any) {
-    if (contact) {
-      this.contactsService.updateContact(contact).subscribe({
-        next: (contact) => {
-          this.loadContacts();
-        },
-        error: (error) => {
-          alert('Failed to load contact: ' + error.message);
-        }
-      });
-    }
+    this.router.navigate(['/contacts', contact.id, 'edit']);
   }
 
   deleteContact(contact: any) {

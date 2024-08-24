@@ -18,8 +18,8 @@ export class ContactsService {
   }
 
   getContact(id: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${id}`).pipe(
-      catchError(this.handleError<any>(`getContact id=${id}`))
+    return this.http.get<any>(`${this.apiUrl}/GetContactById?id=${id}`).pipe(
+      catchError(this.handleError<any>(`GetContactById id=${id}`))
     );
   } 
 
