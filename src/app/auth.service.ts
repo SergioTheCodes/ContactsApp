@@ -7,15 +7,14 @@ import { tap, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'https://localhost:7080/api/Contact'; // Cambia esto a la URL real de tu API
+  private apiUrl = 'https://localhost:7080/api/Contact';
   private tokenKey = 'auth-token';
 
   constructor(private http: HttpClient) {}
 
   login(email: string, password: string): Observable<any> {
     return this.http.post(`${this.apiUrl}/login`, { email, password }).pipe(
-      tap((response: any) => {
-        // Guardar el token en el almacenamiento local
+      tap((response: any) => {        
         localStorage.setItem(this.tokenKey, response.token);
       }),
       catchError(this.handleError<any>('login'))
